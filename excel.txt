@@ -1,0 +1,221 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+
+namespace exceltool
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
+      Work();
+    }
+    public static void Work()
+    {
+      using (SqlConnection Database = new SqlConnection("uid=esupport;Server="))
+      {
+        Database.Open();
+        SqlCommand oCommand = new SqlCommand("SELECT top 100 * from Documents", Database);
+        oCommand.CommandTimeout = 3600;
+        SqlDataReader oReader = oCommand.ExecuteReader();
+        //while (oReader.Read())
+        //{
+        //  //inkmd.DocumentAuthAuthID.Add(oReader["AuthID"].ToString());
+
+        //}
+
+        ExportExcel(ConvertDataReaderToDataTable(oReader), @"C:\exc","我是测试");
+
+
+      }
+    }
+
+    private  static void ExportExcel(DataTable dt, string filePath,string sheetName)
+    {
+      byte[] data = ExcelHelper.DataTable2Excel(dt, sheetName);
+      string path = filePath +"\\"+ DateTime.Now.Ticks.ToString() + ".xls";
+      if (!File.Exists(path))
+      {
+        FileStream fs = new FileStream(path, FileMode.CreateNew);
+        fs.Write(data, 0, data.Length);
+        fs.Close();
+
+      }
+      Console.WriteLine("导出数据成功！");
+
+    }
+
+    public static DataTable ConvertDataReaderToDataTable(SqlDataReader dataReader)
+    {
+      DataTable datatable = new DataTable();
+      DataTable schemaTable = dataReader.GetSchemaTable();
+
+      //动态添加列
+      try
+      {
+        List<string> columnsList = new List<string>();
+        foreach (DataRow myRow in schemaTable.Rows)
+        {
+          DataColumn myDataColumn = new DataColumn();
+          myDataColumn.DataType = myRow.GetType();
+          myDataColumn.ColumnName = myRow[0].ToString();
+          datatable.Columns.Add(myRow[0].ToString());
+          columnsList.Add(myRow[0].ToString());
+        }
+        //添加数据
+        while (dataReader.Read())
+        {
+          DataRow myDataRow = datatable.NewRow();
+          for (int i = 0; i < schemaTable.Rows.Count; i++)
+          {
+            myDataRow[columnsList[i]] = dataReader[i].ToString();
+          }
+          datatable.Rows.Add(myDataRow);
+          myDataRow = null;
+        }
+        schemaTable = null;
+        dataReader.Close();
+        return datatable;
+      }
+      catch (Exception ex)
+      {
+        //throw new Exception("转换出错出错!", ex);
+      }
+       return datatable;
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NPOI.SS.UserModel;
+using NPOI.HSSF.UserModel;
+using System.Data;
+using System.IO;
+
+namespace exceltool
+{
+  public static class ExcelHelper
+  {
+    /// <summary>
+    /// 类版本
+    /// </summary>
+    public static string version
+    {
+      get { return "0.1"; }
+    }
+    static readonly int EXCEL03_MaxRow = 65535;
+
+    /// <summary>
+    /// 将DataTable转换为excel2003格式。
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <returns></returns>
+    public static byte[] DataTable2Excel(DataTable dt, string sheetName)
+    {
+
+      IWorkbook book = new HSSFWorkbook();
+      if (dt.Rows.Count < EXCEL03_MaxRow)
+        DataWrite2Sheet(dt, 0, dt.Rows.Count - 1, book, sheetName);
+      else
+      {
+        int page = dt.Rows.Count / EXCEL03_MaxRow;
+        for (int i = 0; i < page; i++)
+        {
+          int start = i * EXCEL03_MaxRow;
+          int end = (i * EXCEL03_MaxRow) + EXCEL03_MaxRow - 1;
+          DataWrite2Sheet(dt, start, end, book, sheetName + i.ToString());
+        }
+        int lastPageItemCount = dt.Rows.Count % EXCEL03_MaxRow;
+        DataWrite2Sheet(dt, dt.Rows.Count - lastPageItemCount, lastPageItemCount, book, sheetName + page.ToString());
+      }
+      MemoryStream ms = new MemoryStream();
+      book.Write(ms);
+      return ms.ToArray();
+    }
+    private static void DataWrite2Sheet(DataTable dt, int startRow, int endRow, IWorkbook book, string sheetName)
+    {
+      ISheet sheet = book.CreateSheet(sheetName);
+      IRow header = sheet.CreateRow(0);
+      for (int i = 0; i < dt.Columns.Count; i++)
+      {
+        ICell cell = header.CreateCell(i);
+        string val = dt.Columns[i].Caption ?? dt.Columns[i].ColumnName;
+        cell.SetCellValue(val);
+      }
+      int rowIndex = 1;
+      for (int i = startRow; i <= endRow; i++)
+      {
+        DataRow dtRow = dt.Rows[i];
+        IRow excelRow = sheet.CreateRow(rowIndex++);
+        for (int j = 0; j < dtRow.ItemArray.Length; j++)
+        {
+          if (dtRow[j].ToString().Length > 30000)
+          {
+            excelRow.CreateCell(j).SetCellValue(dtRow[j].ToString().Substring(0,30000));
+          }
+          else
+          {
+            excelRow.CreateCell(j).SetCellValue(dtRow[j].ToString());
+          }
+         
+        }
+      }
+
+    }
+  }
+}
