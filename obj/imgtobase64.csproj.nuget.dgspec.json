@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\github\\imgtobase64\\imgtobase64.csproj": {}
+  },
+  "projects": {
+    "C:\\github\\imgtobase64\\imgtobase64.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\github\\imgtobase64\\imgtobase64.csproj",
+        "projectName": "imgtobase64",
+        "projectPath": "C:\\github\\imgtobase64\\imgtobase64.csproj",
+        "packagesPath": "C:\\Users\\yongsheng\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\imgtobase64\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\yongsheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://10.122.11.61:9081/repository/nuget-hosted/": {},
+          "http://10.122.11.61:9081/repository/nuget.org-proxy/": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "MetadataExtractor": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "lz4net": {
+              "target": "Package",
+              "version": "[1.0.15.93, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
