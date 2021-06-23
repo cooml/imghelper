@@ -63,7 +63,9 @@ namespace imgtobase64
                             image.Format = MagickFormat.Jpeg;
                             image.Write(ImageFileName + ".jpg");
                         }
-                        return Base64(ImageFileName + ".jpg");
+                        var tempJpg = Base64(ImageFileName + ".jpg");
+                        File.Delete(ImageFileName + ".jpg");
+                        return tempJpg;
                     }
                     else
                     {

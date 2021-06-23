@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "/UQ7T3VQxv+cF7r7rPOHa8UTkjUZTTX5/PTdK3EA2oKxlsYw9bOGYXx5IjW3DATkBnIFo554d3OEiVOWMBtLeA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\luoys4\\Downloads\\imghelper\\imgtobase64.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\luoys4\\.nuget\\packages\\lz4net\\1.0.15.93\\lz4net.1.0.15.93.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\lz4net.unsafe.netcore\\1.0.15.93\\lz4net.unsafe.netcore.1.0.15.93.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\magick.net-q16-anycpu\\7.24.1\\magick.net-q16-anycpu.7.24.1.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\magick.net.core\\7.0.1\\magick.net.core.7.0.1.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\metadataextractor\\2.3.1\\metadataextractor.2.3.1.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.netcore.app\\2.0.0\\microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.0.0\\microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.0.0\\microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.0.0\\microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\luoys4\\.nuget\\packages\\xmpcore\\6.1.10\\xmpcore.6.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}

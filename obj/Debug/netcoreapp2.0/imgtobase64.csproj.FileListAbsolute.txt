@@ -30,3 +30,15 @@ C:\Users\luoys4\Downloads\imgtobase64-202106-nofile\obj\Debug\netcoreapp2.0\imgt
 C:\Users\luoys4\Downloads\imgtobase64-202106-nofile\obj\Debug\netcoreapp2.0\imgtobase64.AssemblyInfo.cs
 C:\Users\luoys4\Downloads\imgtobase64-202106-nofile\obj\Debug\netcoreapp2.0\imgtobase64.dll
 C:\Users\luoys4\Downloads\imgtobase64-202106-nofile\obj\Debug\netcoreapp2.0\imgtobase64.pdb
+C:\Users\luoys4\Downloads\imghelper\bin\Debug\netcoreapp2.0\imgtobase64.deps.json
+C:\Users\luoys4\Downloads\imghelper\bin\Debug\netcoreapp2.0\imgtobase64.runtimeconfig.json
+C:\Users\luoys4\Downloads\imghelper\bin\Debug\netcoreapp2.0\imgtobase64.runtimeconfig.dev.json
+C:\Users\luoys4\Downloads\imghelper\bin\Debug\netcoreapp2.0\imgtobase64.dll
+C:\Users\luoys4\Downloads\imghelper\bin\Debug\netcoreapp2.0\imgtobase64.pdb
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.csprojAssemblyReference.cache
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.AssemblyInfoInputs.cache
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.AssemblyInfo.cs
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.csproj.CoreCompileInputs.cache
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.dll
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.pdb
+C:\Users\luoys4\Downloads\imghelper\obj\Debug\netcoreapp2.0\imgtobase64.genruntimeconfig.cache

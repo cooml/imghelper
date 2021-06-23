@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\github\\imgtobase64\\imgtobase64.csproj": {}
+    "C:\\Users\\luoys4\\Downloads\\imghelper\\imgtobase64.csproj": {}
   },
   "projects": {
-    "C:\\github\\imgtobase64\\imgtobase64.csproj": {
+    "C:\\Users\\luoys4\\Downloads\\imghelper\\imgtobase64.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\imgtobase64\\imgtobase64.csproj",
+        "projectUniqueName": "C:\\Users\\luoys4\\Downloads\\imghelper\\imgtobase64.csproj",
         "projectName": "imgtobase64",
-        "projectPath": "C:\\github\\imgtobase64\\imgtobase64.csproj",
-        "packagesPath": "C:\\Users\\yongsheng\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\imgtobase64\\obj\\",
+        "projectPath": "C:\\Users\\luoys4\\Downloads\\imghelper\\imgtobase64.csproj",
+        "packagesPath": "C:\\Users\\luoys4\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luoys4\\Downloads\\imghelper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\yongsheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luoys4\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp2.0": {
           "dependencies": {
+            "Magick.NET-Q16-AnyCPU": {
+              "target": "Package",
+              "version": "[7.24.1, )"
+            },
             "MetadataExtractor": {
               "target": "Package",
               "version": "[2.3.1, )"
@@ -72,7 +76,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
