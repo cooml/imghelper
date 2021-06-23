@@ -65,6 +65,7 @@ namespace imgtobase64
                         }
                         var tempJpg = Base64(ImageFileName + ".jpg");
                         File.Delete(ImageFileName + ".jpg");
+                        
                         return tempJpg;
                     }
                     else
