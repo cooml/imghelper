@@ -9,11 +9,24 @@ namespace imgtobase64
     class Base64Helper
     {
         private static List<string> Exts = new List<string>() { "jpg", "jpeg", "gif", "bmp", "png", "ico", "heic" };
+        private static List<string> VideoExts = new List<string>() { "mp4","mov" };
         /// <summary>
         /// 图片转Base64
         /// </summary>
         /// <param name="ImageFileName">图片的完整路径</param>
         /// <returns></returns>
+        public static string ToBase64(string ImageFileName)
+        {
+            string ext = Path.GetExtension(ImageFileName).ToLower().Substring(1);
+            if (Exts.Contains(ext))
+            {
+                return ImgToBase64(ImageFileName);
+            }
+            return VideoToBase64(ImageFileName);
+
+
+        }
+
         public static string ImgToBase64(string ImageFileName)
         {
             return Base64(ImageFileName);
@@ -47,6 +60,52 @@ namespace imgtobase64
             return "";
         }
 
+        /// <summary>
+        /// 视频转Base64
+        /// </summary>
+        /// <param name="ImageFileName">图片的完整路径</param>
+        /// <returns></returns>
+        public static string VideoToBase64(string ImageFileName)
+        {
+            try
+            {
+                string ext = Path.GetExtension(ImageFileName).ToLower().Substring(1);
+                if (VideoExts.Contains(ext))
+                {
+                    string base64Str = "";
+                    using (FileStream fsRead = new FileStream(ImageFileName, FileMode.Open))
+                    {
+                        int fsLen = (int)fsRead.Length;
+                        byte[] heByte = new byte[fsLen];
+                        int r = fsRead.Read(heByte, 0, heByte.Length);
+
+                        base64Str = Convert.ToBase64String(heByte);
+
+                    }
+                    return "<!DOCTYPE html><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>" + Path.GetFileNameWithoutExtension(ImageFileName)
+                     + "</title>" +
+                     "<video  width=\"500\" controls height=\"500\"> <source type = \"video/mp4\" src = \"data:video/" + getVideoBase64Type(ext) + ";base64," + base64Str + "\" > </video ></body></html>";
+
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+            return "";
+        }
+        public static string getVideoBase64Type(string ext)
+        {
+            switch (ext)
+            {
+                case "mov":
+                    return "quicktime";
+                default:
+                    return ext;
+            }
+        }
+
+
 
         public static string Base64(string ImageFileName)
         {
@@ -65,7 +124,7 @@ namespace imgtobase64
                         }
                         var tempJpg = Base64(ImageFileName + ".jpg");
                         File.Delete(ImageFileName + ".jpg");
-                        
+
                         return tempJpg;
                     }
                     else

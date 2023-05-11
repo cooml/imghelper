@@ -14,7 +14,7 @@ namespace imgtobase64
     static void Main(string[] args)
     {
       Console.WriteLine("Hello World!");
-      GetAllDirList(@"C:\Users\luoys4\Desktop\heic");
+      GetAllDirList(@"D:\onedriver\OneDrive - Lenovo\桌面\est");
 
     }
 
@@ -39,7 +39,7 @@ namespace imgtobase64
       FileInfo[] inf = dir.GetFiles();
       foreach (FileInfo finf in inf)
       {
-        var htmlSend = Base64Helper.ImgToBase64(finf.FullName);
+        var htmlSend = Base64Helper.ToBase64(finf.FullName);
         var imgDetail = GetTakePicDate(finf.FullName);
 
         if (!string.IsNullOrEmpty(htmlSend))
@@ -59,7 +59,7 @@ namespace imgtobase64
       {
         foreach (var item in failList)
         {
-          var htmlSend = Base64Helper.ImgToBase64(item);
+          var htmlSend = Base64Helper.ToBase64(item);
           var imgDetail = GetTakePicDate(item);
           if (!string.IsNullOrEmpty(htmlSend))
           {
@@ -87,11 +87,11 @@ namespace imgtobase64
       foreach (FileInfo finf in inf)
       {
         i++;
-        var html = Base64Helper.ImgToBase64(finf.FullName);
+        var html = Base64Helper.ToBase64(finf.FullName);
         if (!string.IsNullOrEmpty(html))
         {
           var imgDetail = GetTakePicDate(finf.FullName);
-          var res = WritToFile(html, path + "\\imghtml" + "\\" + finf.Name + imgDetail + ".htm", path + "\\imghtml");
+          var res = WritToFile(html, path + "\\converthtml" + "\\" + finf.Name + imgDetail + ".htm", path + "\\converthtml");
 
           Console.WriteLine("完成:" + res + "---" + finf.Name + "  " + i + "/" + inf.Length);
         }
